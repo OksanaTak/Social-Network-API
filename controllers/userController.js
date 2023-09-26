@@ -61,4 +61,43 @@ module.exports = {
       res.status(500).json(err);
     }
   },
+  async addFriend(req, res) {
+    try {
+      const user = await User.findOneAndUpdate({ _id: req.params.userId },{$addToSet:{friends:req.params.friendID}});
+
+      if (!user) {
+        return res.status(404).json({ message: 'No user with that ID' });
+      }
+
+      res.json({ message: 'User and associated apps deleted!' })
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  },
+  async deleteFriend(req, res) {
+    try {
+      const user = await User.findOneAndDelete({ _id: req.params.friendId });
+
+      if (!user) {
+        return res.status(404).json({ message: 'No user with that ID' });
+      }
+
+      res.json({ message: 'User and associated apps deleted!' })
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  },
+  async updateUser(req, res) {
+    try {
+      const user = await User.findOneAndUpdate({ _id: req.params.userId },{$set:req.body});
+
+      if (!user) {
+        return res.status(404).json({ message: 'No user with that ID' });
+      }
+
+      res.json({ message: 'User and associated apps deleted!' })
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  },
 };
