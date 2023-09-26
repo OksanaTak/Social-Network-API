@@ -94,34 +94,34 @@ module.exports = {
       res.status(500).json(err);
     }
   },
-  // Adds a tag to an Thought. This method is unique in that we add the entire body of the reaction rather than the ID with the mongodb $addToSet operator.
+  // Adds a reaction to an Thought. This method is unique in that we add the entire body of the reaction rather than the ID with the mongodb $addToSet operator.
   async addReaction(req, res) {
     try {
-      const Thought = await Thought.findOneAndUpdate(
-        { _id: req.params.ThoughtId },
-        { $addToSet: { tags: req.body } },
+      const ThoughtData = await Thought.findOneAndUpdate(
+        { _id: req.params.thoughtId },
+        { $addToSet: { reactions: req.body } },
         { runValidators: true, new: true }
       );
 
-      if (!Thought) {
+      if (!ThoughtData) {
         return res.status(404).json({ message: 'No Thought with this id!' });
       }
 
-      res.json(Thought);
+      res.json(ThoughtData);
     } catch (err) {
       res.status(500).json(err);
     }
   },
-  // Remove Thought reaction. This method finds the Thought based on ID. It then updates the reactions array associated with the app in question by removing it's tagId from the tags array.
+  // Remove Thought reaction. This method finds the Thought based on ID. It then updates the reactions array associated with the app in question by removing it's reactionId from the reactions array.
   async removeReaction(req, res) {
     try {
-      const Thought = await Thought.findOneAndUpdate(
-        { _id: req.params.ThoughtId },
-        { $pull: { tags: { tagId: req.params.tagId } } },
+      const ThoughtData = await Thought.findOneAndUpdate(
+        { _id: req.params.thoughtId },
+        { $pull: { reactions: { reactionId: req.params.reactionId } } },
         { runValidators: true, new: true }
       );
 
-      if (!Thought) {
+      if (!ThoughtData) {
         return res.status(404).json({ message: 'No Thought with this id!' });
       }
 
