@@ -21,5 +21,5 @@ THEN I am able to successfully create and delete reactions to thoughts and add a
 
 ##Links
 [URL of GitHub repository](https://github.com/OksanaTak/Social-Network-API)
-<img src="./assets/image/WeatherDashboard.png"/>
+
 [Video] (https://drive.google.com/file/d/1qUWpnm1i5e_6gmE2JoHtJ6PLy6kc_Usy/view)
