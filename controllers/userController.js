@@ -97,7 +97,7 @@ module.exports = {
         return res.status(404).json({ message: 'No user with that ID' });
       }
 
-      res.json({ message: 'User and associated apps deleted!' })
+      res.json({ message: 'User and associated apps updated!' })
     } catch (err) {
       res.status(500).json(err);
     }
