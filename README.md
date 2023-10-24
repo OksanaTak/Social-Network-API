@@ -22,4 +22,4 @@ THEN I am able to successfully create and delete reactions to thoughts and add a
 ##Links
 [URL of GitHub repository](https://github.com/OksanaTak/Social-Network-API)
 
-[Video] (https://drive.google.com/file/d/1qUWpnm1i5e_6gmE2JoHtJ6PLy6kc_Usy/view)
+[Video] (https://drive.google.com/file/d/11velcV14aMLMgmVoT8ze7lF8o_04wDhm/view)
